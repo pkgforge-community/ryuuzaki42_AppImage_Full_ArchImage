@@ -3,7 +3,7 @@
 # NAME OF THE APP BY REPLACING "SAMPLE"
 APP=kdiff3
 BIN="$APP" #CHANGE THIS IF THE NAME OF THE BINARY IS DIFFERENT FROM "$APP" (for example, the binary of "obs-studio" is "obs")
-DEPENDENCES=""
+DEPENDENCES="ca-certificates "
 #BASICSTUFF="binutils debugedit gzip"
 #COMPILERS="base-devel"
 
@@ -228,9 +228,9 @@ rm -R -f ./$APP.AppDir/.junest/usr/man #APPIMAGES ARE NOT MENT TO HAVE MAN COMMA
 rm -R -f ./$APP.AppDir/.junest/var/* #REMOVE ALL PACKAGES DOWNLOADED WITH THE PACKAGE MANAGER
 
 # SAVE FILES USING KEYWORDS
-BINSAVED="SAVEBINSPLEASE" # Enter here keywords to find and save in /usr/bin
-SHARESAVED="SAVESHAREPLEASE" # Enter here keywords or file/folder names to save in both /usr/share and /usr/lib
-LIBSAVED="SAVELIBSPLEASE" # Enter here keywords or file/folder names to save in /usr/lib
+BINSAVED="certificates SAVEBINSPLEASE" # Enter here keywords to find and save in /usr/bin
+SHARESAVED="certificates SAVESHAREPLEASE" # Enter here keywords or file/folder names to save in both /usr/share and /usr/lib
+LIBSAVED="pk p11 alsa jack pipewire pulse SAVELIBSPLEASE" # Enter here keywords or file/folder names to save in /usr/lib
 
 # STEP 2, FUNCTION TO SAVE THE BINARIES IN /usr/bin THAT ARE NEEDED TO MADE JUNEST WORK, PLUS THE MAIN BINARY/BINARIES OF THE APP
 # IF YOU NEED TO SAVE MORE BINARIES, LIST THEM IN THE "BINSAVED" VARIABLE. COMMENT THE LINE "_savebins" IF YOU ARE NOT SURE.
@@ -250,7 +250,7 @@ function _savebins(){
 	mv ./save/* ./$APP.AppDir/.junest/usr/bin/
 	rmdir save
 }
-#_savebins 2> /dev/null
+_savebins 2> /dev/null
 
 # STEP 3, MOVE UNNECESSARY LIBRARIES TO A BACKUP FOLDER (FOR TESTING PURPOSES)
 mkdir save
@@ -316,19 +316,19 @@ function _mvlibs(){
 	mv ./save/* ./$APP.AppDir/.junest/usr/lib/
 }
 
-#_binlibs 2> /dev/null
+_binlibs 2> /dev/null
 
 #_include_swrast_dri 2> /dev/null
 
-#_libkeywords 2> /dev/null
+_libkeywords 2> /dev/null
 
-#_liblibs 2> /dev/null
-#_liblibs 2> /dev/null
-#_liblibs 2> /dev/null
-#_liblibs 2> /dev/null
-#_liblibs 2> /dev/null
+_liblibs 2> /dev/null
+_liblibs 2> /dev/null
+_liblibs 2> /dev/null
+_liblibs 2> /dev/null
+_liblibs 2> /dev/null
 
-#_mvlibs 2> /dev/null
+_mvlibs 2> /dev/null
 
 rmdir save
 
@@ -351,7 +351,7 @@ function _saveshare(){
 	mv ./save/* ./$APP.AppDir/.junest/usr/share/
  	rmdir save
 }
-#_saveshare 2> /dev/null
+_saveshare 2> /dev/null
 
 # RSYNC THE CONTENT OF THE APP'S PACKAGE
 rm -R -f ./base/.*
@@ -359,7 +359,7 @@ rsync -av ./base/* ./$APP.AppDir/.junest/
 
 # RSYNC DEPENDENCES
 rm -R -f ./deps/.*
-#rsync -av ./deps/* ./$APP.AppDir/.junest/
+rsync -av ./deps/* ./$APP.AppDir/.junest/
 
 # ADDITIONAL REMOVALS
 #rm -R -f ./$APP.AppDir/.junest/usr/lib/libLLVM-* #INCLUDED IN THE COMPILATION PHASE, CAN SOMETIMES BE EXCLUDED FOR DAILY USE

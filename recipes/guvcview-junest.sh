@@ -359,7 +359,7 @@ rsync -av ./base/* ./$APP.AppDir/.junest/
 
 # RSYNC DEPENDENCES
 rm -R -f ./deps/.*
-rsync -av ./deps/* ./$APP.AppDir/.junest/
+#rsync -av ./deps/* ./$APP.AppDir/.junest/
 
 # ADDITIONAL REMOVALS
 #rm -R -f ./$APP.AppDir/.junest/usr/lib/libLLVM-* #INCLUDED IN THE COMPILATION PHASE, CAN SOMETIMES BE EXCLUDED FOR DAILY USE

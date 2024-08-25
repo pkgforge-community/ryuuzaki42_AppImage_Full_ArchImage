@@ -196,7 +196,7 @@ case "$1" in
 
 	--build|-b)
 		while [ -n "$1" ]; do
-		cd "$(xdg-user-dir DESKTOP)" || exit 1
+		#cd "$(xdg-user-dir DESKTOP)" || exit 1
 		case "$2" in
 		'')
 			echo -e "\n USAGE:	archimage-cli -b [PROGRAM]\n"

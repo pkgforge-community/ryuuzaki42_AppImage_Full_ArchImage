@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Last update: 04/08/2024
+# Last update: 17/10/2024
 
 # NAME OF THE APP BY REPLACING "SAMPLE"
 APP=kdiff3

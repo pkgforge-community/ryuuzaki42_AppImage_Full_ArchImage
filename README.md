@@ -12,4 +12,5 @@ https://github.com/ryuuzaki42/AppImage_Full_ArchImage/releases
 ## Using ArchImage
 https://github.com/ivan-hc/ArchImage
 
-- up 26/10/2024
+---
+Up 17/11/2024

@@ -12,5 +12,12 @@ https://github.com/ryuuzaki42/AppImage_Full_ArchImage/releases
 ## Using ArchImage
 https://github.com/ivan-hc/ArchImage
 
+./archimage-cli -b prog
+
+    blank
+    blank
+    y
+    y
+
 ---
 Up 17/11/2024

@@ -19,5 +19,17 @@ https://github.com/ivan-hc/ArchImage
     y
     y
 
+## Rename
+file_name=$(ls *.AppImage)
+file_name_new=$(echo "$file_name" | rev | cut -d '.' -f2- | rev)
+file_name_new=$(echo "${file_name_new}-1_JB.AppImage")
+
+echo "$file_name $file_name_new"
+
+mv $file_name $file_name_new
+md5sum $file_name_new > ${file_name_new}.md5
+
+ls *AppImage*
+
 ---
-Up 17/11/2024
+Up 19/11/2024

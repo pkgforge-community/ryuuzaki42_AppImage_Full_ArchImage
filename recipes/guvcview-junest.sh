@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+# Last update: 19/02/2025
+
 # NAME OF THE APP BY REPLACING "SAMPLE"
 APP=guvcview
 BIN="$APP" #CHANGE THIS IF THE NAME OF THE BINARY IS DIFFERENT FROM "$APP" (for example, the binary of "obs-studio" is "obs")
-DEPENDENCES="ca-certificates "
+DEPENDENCES="ca-certificates sdl3"
 #BASICSTUFF="binutils debugedit gzip"
 #COMPILERS="base-devel"
 
@@ -359,7 +361,7 @@ rsync -av ./base/* ./$APP.AppDir/.junest/
 
 # RSYNC DEPENDENCES
 rm -R -f ./deps/.*
-#rsync -av ./deps/* ./$APP.AppDir/.junest/
+rsync -av ./deps/* ./$APP.AppDir/.junest/
 
 # ADDITIONAL REMOVALS
 #rm -R -f ./$APP.AppDir/.junest/usr/lib/libLLVM-* #INCLUDED IN THE COMPILATION PHASE, CAN SOMETIMES BE EXCLUDED FOR DAILY USE
@@ -380,5 +382,14 @@ mkdir -p ./$APP.AppDir/.junest/run/user
 if test -f ./*.AppImage; then
 	rm -R -f ./*archimage*.AppImage
 fi
+
+## ryuuzaki42
+
+set -x
+sed -i 's/_//g' guvcview.AppDir/guvcview.desktop
+cat guvcview.AppDir/guvcview.desktop
+
+## ryuuzaki42
+
 ARCH=x86_64 VERSION=$(./appimagetool -v | grep -o '[[:digit:]]*') ./appimagetool -s ./$APP.AppDir
 mv ./*AppImage ./"$(cat ./$APP.AppDir/*.desktop | grep 'Name=' | head -1 | cut -c 6- | sed 's/ /-/g')"_"$VERSION"-archimage3.4-x86_64.AppImage

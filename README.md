@@ -33,4 +33,4 @@ md5sum $file_name_new > ${file_name_new}.md5
 ls *AppImage*
 ```
 ---
-Up 07/03/2026 - 01
+Up 07/03/2026 - 02

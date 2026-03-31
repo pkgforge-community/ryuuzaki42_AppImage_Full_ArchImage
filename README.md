@@ -1,7 +1,7 @@
 # AppImage_Full_ArchImage
 
 ## AppImage with large size, but with more support
-### For example with Glibc>=2.34 or QT6 inside.
+### For example with Glibc>=2.34 or QT6 inside
 
 ### Check the recipes:
 https://github.com/ryuuzaki42/AppImage_Full_ArchImage/tree/main/recipes

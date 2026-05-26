@@ -1,5 +1,7 @@
 #!/bin/bash
 #
+# Last update: 26/05/2025
+#
 # ArchAppImage - Generate AppImage using rootfs, based ArchImage
 #
 # Require:
@@ -716,9 +718,9 @@ test $create_appimage -eq 0 || {
     ARCH=x86_64 "$tool_dirs/appimagetool" \
         --runtime-file "$tool_dirs/runtime" \
         --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
-        -u "$UPINFO" "$appdir" "${appimage_dest_dir:-$CWD}/${name// /_}-$version-ArchAppImage${type}-$(date +"%d_%b_%Y")-x86_64.AppImage"
+        -u "$UPINFO" "$appdir" "${appimage_dest_dir:-$CWD}/${name// /_}-$version-ArchAppImage-x86_64.AppImage"
 
-        mv -v "${name// /_}-$version-ArchAppImage${type}-$(date +"%d_%b_%Y")-x86_64.AppImage.zsync" "${appimage_dest_dir:-$CWD}" || true
+        mv -v "${name// /_}-$version-ArchAppImage-x86_64.AppImage.zsync" "${appimage_dest_dir:-$CWD}" || true
 }
 
 printf "Finished!\n"
